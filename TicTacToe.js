@@ -115,5 +115,14 @@ window.onload = () => {
         return false;
     }
 
+    const freeSpace = () => {
+        for (let index = 0; index < game_state.length; index++) {
+            if (game_state[index] == 2) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     cells.forEach(c => c.addEventListener("click", play, false));
 }
