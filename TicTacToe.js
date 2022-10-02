@@ -99,5 +99,21 @@ window.onload = () => {
         } 
     }
 
+    const checkWin = (index, cplayer) => {
+
+        temp[index] = cplayer;
+
+        for (let value = 0; value < winCombos.length; value++) {
+
+            if (temp[winCombos[value][0]] == temp[winCombos[value][1]] && temp[winCombos[value][1]] == temp[winCombos[value][2]] && temp[winCombos[value][0]] != 2) {
+
+                if (temp[winCombos[value][0]] == cplayer) {
+                    return true;
+                } 
+            }
+        }
+        return false;
+    }
+
     cells.forEach(c => c.addEventListener("click", play, false));
 }
