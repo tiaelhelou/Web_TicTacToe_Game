@@ -33,3 +33,9 @@ table {
     background-size: 80%;
     background-position: center;
 }
+
+.win{
+    position: center;
+    margin-top: 25%;
+    margin-left: 46%;
+}
