@@ -31,23 +31,45 @@ window.onload = () => {
 
                 if (game_state[winCombos[value][0]] == 1) {
                     status.innerText = "The winner is: human";
-                    return false;
+                    return true;
                 } else {
                     status.innerText = "The winner is: computer";
-                    return false;
+                    return true;
                 }
             }
         }
-        return true;
+        return false;
+    }
+
+    const tie = (e) => {
+
+        let found = false;
+
+        for(let i = 0; i < game_state.length & found == false; i++){
+            if(game_state[i] == 2){
+                found = true;
+            }
+        }
+
+        if (found == false) {
+            status.innerText = "Their is: tie";
+            return true;
+        }
+        else {
+            return false;
+        }
+
     }
 
     const play = (e) => {
 
-        if (count < 9 && winning()) {
+        if (count < 9 && !winning() && !tie()) {
 
             game_state[e.target.id] = player;
 
             turn(e.target.id);
+
+            console.log(game_state);
 
             for (let index = 0; index < game_state.length && player == 0; index++) {
                 if (game_state[index] == 2) {
@@ -72,6 +94,9 @@ window.onload = () => {
             count++;
         }
         winning();
+        if(!winning()){
+            tie();
+        } 
     }
 
     cells.forEach(c => c.addEventListener("click", play, false));
