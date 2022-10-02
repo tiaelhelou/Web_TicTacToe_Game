@@ -138,6 +138,32 @@ window.onload = () => {
         else if(!freeSpace()){
             return 0;
         }
+
+        let i = 0;
+        let indecies = [];
+        let results = [];
+
+        for (let val = 0; val < temp.length; val++) {
+
+            if (temp[val] == 2) {
+
+                indecies [i] = val;
+                
+
+                temp[val] = player;
+
+                if (player == 0) {
+                    results[i] = minimax(temp, 1);
+                    
+                }
+                else {
+                    results[i] = minimax(temp, 1);
+                }
+                i++;
+
+            }
+
+        }
     }
 
     cells.forEach(c => c.addEventListener("click", play, false));
