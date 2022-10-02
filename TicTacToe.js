@@ -2,11 +2,44 @@ window.onload = () => {
 
     const cells = document.querySelectorAll(".cell");
 
+    const status = document.getElementById("winner");
+
+    const winCombos = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [6, 4, 2]
+    ]
+
     let player = 1; // 1 => human and 0 => computer
 
     let game_state = [2, 2, 2, 2, 2, 2, 2, 2, 2];
 
     let count = 0;
+
+    const winning = (e) => {
+
+        for (let value = 0; value < winCombos.length; value++) {
+
+            if (game_state[winCombos[value][0]] == game_state[winCombos[value][1]] && game_state[winCombos[value][1]] == game_state[winCombos[value][2]] && game_state[winCombos[value][0]] != 2) {
+
+                count = 9;
+
+                if (game_state[winCombos[value][0]] == 1) {
+                    status.innerText += " human";
+                    return false;
+                } else {
+                    status.innerText += " computer";
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     const play = (e) => {
 
@@ -21,6 +54,19 @@ window.onload = () => {
                     game_state[index] = player;
                     turn(index);
 
+                }
+            }
+        }
+        for (let value = 0; value < winCombos.length; value++) {
+
+            if (game_state[winCombos[value][0]] == game_state[winCombos[value][1]] && game_state[winCombos[value][1]] == game_state[winCombos[value][2]] && game_state[winCombos[value][0]] != 2) {
+
+                count = 9;
+
+                if (game_state[winCombos[value][0]] == 1) {
+                    status.innerText += " human";                
+                } else {
+                    status.innerText += " computer"; 
                 }
             }
         }
