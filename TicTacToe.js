@@ -15,9 +15,9 @@ window.onload = () => {
         [6, 4, 2]
     ]
 
-    let player = 1; // 1 => human and 0 => computer
-
     let game_state = [2, 2, 2, 2, 2, 2, 2, 2, 2];
+
+    let player = 1; // 1 => human and 0 => computer
 
     let count = 0;
 
@@ -43,7 +43,7 @@ window.onload = () => {
 
     const play = (e) => {
 
-        if (count < 9) {
+        if (count < 9 && winning()) {
 
             game_state[e.target.id] = player;
 
@@ -54,19 +54,6 @@ window.onload = () => {
                     game_state[index] = player;
                     turn(index);
 
-                }
-            }
-        }
-        for (let value = 0; value < winCombos.length; value++) {
-
-            if (game_state[winCombos[value][0]] == game_state[winCombos[value][1]] && game_state[winCombos[value][1]] == game_state[winCombos[value][2]] && game_state[winCombos[value][0]] != 2) {
-
-                count = 9;
-
-                if (game_state[winCombos[value][0]] == 1) {
-                    status.innerText += " human";                
-                } else {
-                    status.innerText += " computer"; 
                 }
             }
         }
@@ -84,6 +71,7 @@ window.onload = () => {
             player = 1;
             count++;
         }
+        winning();
     }
 
     cells.forEach(c => c.addEventListener("click", play, false));
