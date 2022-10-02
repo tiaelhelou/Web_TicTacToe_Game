@@ -30,10 +30,10 @@ window.onload = () => {
                 count = 9;
 
                 if (game_state[winCombos[value][0]] == 1) {
-                    status.innerText += " human";
+                    status.innerText = "The winner is: human";
                     return false;
                 } else {
-                    status.innerText += " computer";
+                    status.innerText = "The winner is: computer";
                     return false;
                 }
             }
