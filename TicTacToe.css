@@ -11,3 +11,11 @@ td {
     width: 99px;
     cursor: pointer;
 }
+
+table {
+    border-collapse: collapse;
+    position: absolute;
+    left: 50%;
+    margin-left: -155px;
+    top: 50px;
+}
