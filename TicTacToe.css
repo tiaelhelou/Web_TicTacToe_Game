@@ -19,3 +19,17 @@ table {
     margin-left: -155px;
     top: 50px;
 }
+
+.human {
+    background-image: url("Assets/red.png");
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
+
+.computer {
+    background-image: url("Assets/yellow.png");
+    background-repeat: no-repeat;
+    background-size: 80%;
+    background-position: center;
+}
