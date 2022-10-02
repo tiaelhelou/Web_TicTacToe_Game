@@ -162,7 +162,28 @@ window.onload = () => {
                 i++;
 
             }
+        }
+        
+        let bestMove;
 
+        if (player === 0) {
+            let bestScore = -10000;
+            for (let i = 0; i < indecies.length; i++) {
+                if (results[i] > bestScore) {
+                    bestScore = results[i];
+                    bestMove = i;
+                }
+            }
+        }
+        else {
+            let bestScore = 10000;
+            for (let i = 0; i < indecies.length; i++) {
+                if (results[i] < bestScore) {
+                    bestScore = results[i];
+                    bestMove = i;
+
+                }
+            }
         }
     }
 
