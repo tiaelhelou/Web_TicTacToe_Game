@@ -17,6 +17,8 @@ window.onload = () => {
 
     let game_state = [2, 2, 2, 2, 2, 2, 2, 2, 2];
 
+    let temp = [2, 2, 2, 2, 2, 2, 2, 2, 2];
+
     let player = 1; // 1 => human and 0 => computer
 
     let count = 0;
@@ -122,6 +124,20 @@ window.onload = () => {
             }
         }
         return false;
+    }
+
+    
+    const minimax = (temp) => {
+
+        if (checkWin(temp, 1)) {
+            return 10;
+        }
+        else if (checkWin(temp, 0)) {
+            return -10;
+        }
+        else if(!freeSpace()){
+            return 0;
+        }
     }
 
     cells.forEach(c => c.addEventListener("click", play, false));
